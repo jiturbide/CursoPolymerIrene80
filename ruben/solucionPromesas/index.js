@@ -1,33 +1,32 @@
 (function() {
 
   'use strict';
- const user = 'solucionPromesas/datos.json';
- const cancion = 'solucionPromesas/canciones.json';
- const API_URL = user.user.concat(cancion.canciones);
 
+  const API_URL = 'datos.json';
   const control = document.querySelector('#article0');
-
+  const userHtml = document.querySelector('#user');
    fetch(API_URL)
      .then(response => response.json())
      .then(jsondata => printResponse(jsondata))
      .catch(err => console.log('Fallo la peticion ' + err));
 
 	const printResponse = (jsondata) => {
-		 	let theHtml = '';
-		 	let theRow = '';
+		 	let theHtml = '', theRow = '', user ='',genero='';
 
-    //  theHtml = "<table style='width:100%' padd><tr> <th>Concepto</th> <th>Valor</th> </tr>";
+      user = jsondata.user[0]['name'];
+      genero =jsondata.genero[0]['tipo'];
+        theHtml = "<ul>";
+          for(let key in jsondata.canciones) {theRow ='<li>'  +
+          'Artista:&nbsp;' + jsondata.canciones[key]['cantante'] + '<br>'+
+          'Titulo:&nbsp;&nbsp;' + jsondata.canciones[key]['titulo'] +'</li>'+'<br>';
 
-      for(let key in jsondata.user) {
-
-theRow += jsondata.user[key]['name'];
-  theRow += jsondata.user[key]['id'];
-         theHtml = theHtml + theRow;
+          theHtml = theHtml + theRow;
       }
 
-      //theHtml = theHtml + '</table>';
-
-		 	control.innerHTML = theHtml;
+      theHtml = theHtml + '</ul>' ;
+      userHtml.innerHTML = 'Lista de canciones de:'+'&nbsp;&nbsp;'+user +'<br>'+
+                            'Genero: &nbsp;&nbsp;'+ genero;
+      control.innerHTML = theHtml;
 	}
 
 

@@ -3,6 +3,7 @@ if (value == undefined ){
   console.log("sin argumentos definidos")
 }
   else{
+    
     console.log(value)
   }
 }
