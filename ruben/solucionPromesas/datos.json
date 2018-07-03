@@ -1,0 +1,19 @@
+{
+   "canciones": [
+      {"cantante": "Sixpence None the Richer ", "titulo": "kiss me"},
+   		{"cantante": "No Doubt", "titulo": "Don´t Speak"},
+   		{"cantante": "Hoobastank", "titulo": "The Reason"},
+   		{"cantante": "My Chemical Romance", "titulo": "I Dont Love You"},
+   		{"cantante": "Linkin Park ", "titulo": "With You"},
+   		{"cantante": "Marron 5", "titulo": "She Will Be Loved"}
+
+   ],
+   "user": [
+   		{"name": "Ruben"}
+
+   ],
+  "genero" :[
+     {"tipo":"Rock Alternativo"}
+   ]
+
+}
